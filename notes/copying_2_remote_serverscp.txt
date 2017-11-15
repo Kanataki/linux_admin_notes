@@ -1,0 +1,13 @@
+If you want to copy and paste something toa remote server via ssh, use the scp command.
+
+The syntax is:
+
+	scp <filename> user@remoteip:<path to copy>
+	
+	e.g. scp test.txt kanataki@192.168.100.29:~/
+
+You can also copy folders by adding the -rp.
+
+	scp -rp <foldername> user@remoteip:<path to copy>
+
+	e.g. scp -rp project kanataki@192.168.100.29:~/
