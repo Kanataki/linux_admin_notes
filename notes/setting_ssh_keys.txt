@@ -1,0 +1,28 @@
+Well Hello there,
+
+Some hacker bugger disturbing you again heh!
+
+No worries, this is easy peasy!
+
+I assume you have ssh server set up already.
+Go to your ssh client and create the keys.
+
+	ssh-keygen -t rsa
+
+set permissions for your private key:
+
+	chmod 700 ~/.ssh
+	chmod 600 ~/.ssh/id_rsa
+
+Copy the public key to the server and install it to the authorized_keys list.
+
+	cat id_rsa.pub >> ~/.ssh/authorized_keys
+
+change the permissions to the public key:
+
+	chmod 700 ~/.ssh
+	chmod 600 ~/.ssh/authorized_keys
+
+If you are still running SELinux,make sure all the correct contexts are set by running:
+
+	restorecon -Rv ~/.ssh
