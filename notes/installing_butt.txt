@@ -1,0 +1,38 @@
+Butt (Broadcast using this tool) is a software used for broadcasting.
+I normally use it for online radio.
+To install in centOS, I have to first create a butt repo.
+I do this by going to: /etc/yum.repos.d
+The I make a file: butt.repo
+
+I open the repo file with a text editor e.g vi and paste the following:
+
+[fedora-butt]
+
+name=broadcast using this tool
+
+baseurl=http://repos.fedorapeople.org/repos/comzeradd/butt/fedora-20/x86_64/
+
+enabled=1
+
+skip_if_unavailable=1
+
+gpgcheck=0
+
+[fedora-butt-source]
+
+name=broadcast using this tool - Source
+
+baseurl=http://repos.fedorapeople.org/repos/comzeradd/butt/fedora-20/SRPMS
+
+enabled=0
+
+skip_if_unavailable=1
+
+gpgcheck=0
+
+After that I save the file and run:
+sudo yum install butt.
+
+NB: I might run into an error: 
+Error: Package: butt-0.1.13-2.fc20.x86_64 (fedora-butt)
+           Requires: pulseaudio-module-jack

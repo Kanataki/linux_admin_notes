@@ -1,0 +1,62 @@
+This is the process I used to write a service to auto start Pentaho BI-server on boot.
+
+Pre-requisite: knowledge of how systemd works.
+
+The plan is to create a service in /usr/lib/systemd/system/ which will look like: vi /usr/lib/systemd/system/pentaho.service
+
+I then have to include the system unit script in the above created service which will be like this:
+
+				[Unit]
+				Description=Pentho Bi-server
+				After=syslog.target
+				After=network.target
+
+				[Service]
+				Type=forking
+				User=[user]
+				Group=[group]
+				Environment=JAVA_HOME=/usr/java/latest
+				ExecStart=/opt/Pentaho/pentaho-server/start-pentaho.sh
+				ExecStartPost=/bin/echo pentaho...end of unitfile
+
+
+				TimeoutSec=300
+
+				[Install]
+				WantedBy=graphical.target
+
+
+Remember to substitute the BI-server paths with the ones you are actually using.
+
+Enable the service by running systemctl enable pentaho.service
+
+You can now test your service by running systemctl status pentaho.service
+
+Lastly tail catalina log to check whether your service is working: tail -f /opt/Pentaho/pentaho-server/tomcat/logs/catalina.out
+
+NB:the paths depend on where you did your installation.
+
+if you run into the following error:
+
+		● pentaho.service - Pentho Bi-server
+   		Loaded: loaded (/usr/lib/systemd/system/pentaho.service; enabled; vendor preset: disabled)
+  		Active: inactive (dead)
+
+There are a couple of things you can try. However, I advise cross checking whether your script is okay before changing anything.
+
+	option1: Run 'systemctl start pentaho.service' and pay attention to the errors you'll receive.
+	option2: Now, here's where you change a few things,
+		check your Type under [service], it should be 'Type=forking'.
+		If however you're still getting the errors, change the type to 'Type=oneshot'.
+
+After making any kind of change, reload the systemd service by running: systemctl daemon-reload
+Then run:
+	'systemctl start pentaho.service' 
+	 and 'systemctl status pentaho.service' respectively.
+
+Have fun doing magic :-)
+	
+
+
+
+

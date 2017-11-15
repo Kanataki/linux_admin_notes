@@ -1,0 +1,8 @@
+This is the standard command to copy stuff from your local machine to an AWS ec2 instance:
+
+	scp -i pentahopair.pem test.css ec2-user@34.236.110.88:~
+
+	Substutute pentahopair.pem with your actual .pem file.
+	test.css is the file you are copying
+	ec2-user@34.236.110.88 is the instances details
+	include the path to where you'd like to copy after the fullcolon :

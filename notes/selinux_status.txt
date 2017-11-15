@@ -1,0 +1,24 @@
+Hello there, gotten into a little bit of selinux problems haven't we :-(
+I was waiting for you.....
+
+Well if you want to know the status of your selinux, it's pretty simple:
+
+Go to this file:  /etc/sysconfig/selinux. Here you'll find 
+		
+		# This file controls the state of SELinux on the system.
+		# SELINUX= can take one of these three values:
+		#     enforcing - SELinux security policy is enforced.
+		#     permissive - SELinux prints warnings instead of enforcing.
+		#     disabled - No SELinux policy is loaded.
+		SELINUX=permissive
+		# SELINUXTYPE= can take one of three two values:
+		#     targeted - Targeted processes are protected,
+		#     minimum - Modification of targeted policy. Only selected processes are protected.
+		#     mls - Multi Level Security protection.
+		SELINUXTYPE=targeted
+
+SElinux has three values: 
+		1.enforcing - this is selinux's full ninja mode. if you are here, I hope you know your stuff :-)
+		2. permissive - at this mode, selinux doesn't enforce any rules but it still reports what is happening. this is the recommended mode.
+		3. disable  - Thou shall never disable thy selinux! In this mode SElinux is turned off.  
+

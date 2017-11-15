@@ -1,0 +1,19 @@
+I use LVM to create and manage logical volumes in Linux.
+
+I break it into the following:
+Creating Partitions:
+Creating Physical volumes:
+creating Volume groups:
+creating logical volumes:
+Extending volumes:
+	lvextend -L+3G /dev/centos/var
+	substitute /dev/centos/var with the path to the particular logical volume.
+The volume will have extended but now you have to extend the file system.
+If on centOS, use:
+		xfs_growfs /dev/centos/var
+		substitute /dev/centos/var with the path to the particular logical volume.
+
+on other Linux distros, you can use:
+				resize2fs /dev/centos/var
+				substitute /dev/centos/var with the path to the particular logical volume.
+

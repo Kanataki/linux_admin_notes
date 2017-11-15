@@ -1,0 +1,25 @@
+VNC is pretty useful when connecting to remote servers since it is graphical in nature and lets you see pretty stuff :-)
+However, VNC is not encrypted and thus not very safe to use especially with critical servers.
+SSH on the other hand is very secure but it just text-based and has no pretty stuff :-(
+but worry not, past me has got you sorted :-)
+
+You can actually tunnel VNC on SSH thereby getting the pretty GUI and the secure connection all in one. 
+
+How to do this?
+
+On your client machine connect to your remote server by running:
+
+	ssh -l 5900:<ip>:5900 <ip>
+	e.g. ssh -l 5900:192.168.1.90:5900 192.168.1.90
+
+The -l sets up a tunnel from your client machine to the remote server.
+
+Now you can connect again to the server using VNC and your connection will be encrypted. :-)
+
+
+NB: if your OS doesn't allow you to connect via VNC, try to use a diferent port number for your client machine.
+e.g. ssh -l 5999:192.168.1.90:5900 192.168.1.90
+
+Now try to connect via VNC.
+
+cheers!

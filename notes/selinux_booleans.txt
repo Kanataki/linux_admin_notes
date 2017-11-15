@@ -1,0 +1,16 @@
+Well, back again aren't we?
+
+SElinux has a list of booleans depicting what is allowed and what is not.
+This can be very helpful especially during trouble-shooting.
+Run: 'getsebool -a' to view all the available booleans. 
+It is a very long list so I recommend using grep to9 limit your search
+to what you are looking for.
+
+e.g. getsebool -a | grep <name>
+
+To change the status of a boolean, run 'setsebool [-P] <name> <1 or 0>
+The '-P' is used when you want to make a permanent change. If you don'tuse it, your changes will be temporary.
+The '1' is used to set on and '0' is to set off.
+e.g. 'setsebool -P postgresql_can_rsync 1'
+
+You can find a list of changes made to boolean at: /etc/selinux/targeted/modules/active/booleans.local 
