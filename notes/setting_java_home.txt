@@ -1,0 +1,24 @@
+This is simple yet can be a very annoying process.
+
+First you have to install Oracle java or any other version of java.
+
+I do this by going to the Oracle site and getting a 64 bit .rpm
+
+The I install using yum localinstall.
+
+
+Setting the home:
+
+For JDK, your java will mostly be in: /usr/java/<javaversion>
+
+Go to /etc/profiles and add:
+		
+		export JAVA_HOME=/usr/java/default
+
+If you want this home variable to apply across all users, add the line:
+	
+		export PATH=$PATH:$JAVA_HOME/bin
+
+Run: source /etc/profile for your changes to take immediate effect.
+
+Run: echo $JAVA_HOME to confirm your changes.
