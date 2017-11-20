@@ -1,0 +1,31 @@
+This can confuse you at first but at times you might want to SSH into into an EC2 instance from another EC2 instance.
+
+If both instances are in the same subnet then this is easy. All you have to do is set up public and private keys.
+
+ Here is how you do it:
+
+	We are ssh-ing from server A to server B.
+	
+	server A: ssh-keygen
+
+		  Hit enter enter enter. You'll have two files:
+
+			.ssh/id_rsa
+			.ssh/id_rsa.pub
+
+		  cat and copy to clipboard the public key:
+
+			cat ~/.ssh/id_rsa.pub
+			[select and copy to your clipboard]
+
+	server B: ssh-keygen
+		
+
+		cat >> ~/.ssh/authorized_keys
+		[paste your clipboard contents]
+		[ctrl+d to exit]
+
+
+
+	Server A: ssh -i ~/.ssh/id_rsa private.ip.of.other.server
+

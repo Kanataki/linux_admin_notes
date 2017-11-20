@@ -1,0 +1,7 @@
+These are pretty easy to handle.
+
+Open terminal and run: sudo crontab -e
+
+This will open your cron tab where all your jobs are located.
+
+Just add whatever you want to do there eg. a command, a path to a script etc.
