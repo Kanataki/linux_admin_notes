@@ -9,16 +9,30 @@ Go to your ssh client and create the keys.
 
 	ssh-keygen -t rsa
 
+You can ignore the '-t rsa' part if you like.
+
 set permissions for your private key:
 
 	chmod 700 ~/.ssh
 	chmod 600 ~/.ssh/id_rsa
 
-Copy the public key to the server and install it to the authorized_keys list.
+You can ignore the permissions if you want. However, if you get errors go back and implement them.
 
-	cat id_rsa.pub >> ~/.ssh/authorized_keys
+Copy the public key from the client by issuing the folowing command:
 
-change the permissions to the public key:
+cat id_rsa.pub 
+
+copy the contents of the file.
+
+ssh into the server and edit the authorized keys file:
+
+sudo vi ~/.ssh/authorized_keys
+
+if there are other existing keys, hit a new line and add yours.
+
+Save the file and exit
+
+if you want,you can change the permissions:
 
 	chmod 700 ~/.ssh
 	chmod 600 ~/.ssh/authorized_keys
@@ -26,3 +40,16 @@ change the permissions to the public key:
 If you are still running SELinux,make sure all the correct contexts are set by running:
 
 	restorecon -Rv ~/.ssh
+
+Got to the ssh config file and turn off password login:
+
+		go to sudo /etc/ssh/sshd_config
+
+		and set 'PasswordAuthentication'to 'no'
+
+
+Restart the ssh server:
+
+	sudo systemctl restart sshd.service
+
+Happy security :-)
