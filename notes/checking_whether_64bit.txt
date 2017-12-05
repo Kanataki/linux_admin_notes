@@ -1,0 +1,9 @@
+In most cases, you may need to know whether your Linux system is 32 or 64 bit.
+
+Simply run: uname -a
+
+A 64bit system will giveyou something that looks like x86_64
+
+while a 32bit system will give you i6386.
+
+ 

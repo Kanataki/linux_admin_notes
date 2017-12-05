@@ -1,0 +1,11 @@
+You might get a 'Firefox ix already running but not responding error'
+
+When this happens, you need to restart firefox from the CLI.
+
+get the firefox processid:
+
+	pidof firefox
+
+use the pid on the kill command:
+
+	kill <pid>
