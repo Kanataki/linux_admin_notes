@@ -1,0 +1,11 @@
+In some cases you might want to free a port that is in use.
+
+First you have to find out what proceses are using that port.
+Do this by running: lsof -ti:<port>
+		e.g. lsof -ti:5901
+
+then run: lsof -ti:5901 | xargs kill -9 to kill whatever that is using that port.
+
+If you want a detailed report on what is using the port, run: netstat -tulpn | grep <port>
+
+You can also use ss like: ss -ltp | grep <port>

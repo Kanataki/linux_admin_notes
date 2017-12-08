@@ -1,0 +1,25 @@
+VNC is unencrypted and thus poses a  risk to your server's security even though you have taken steps to secure your ssh.
+For more details on how to secure your ssh, check out my ssh notes.
+
+There is however a way to ensure your VNC is secure by tunneling it through ssh. For VNC to work, you had to allow the port 5900 
+(or a range of ports e.g. 5901-5903) inn firewalld. For security purposes, remove the port(s) from the firewall.
+
+You do this by running: firewall-cmd --zone=public --remove-port=<port>/tcp
+                    or: firewall-cmd --zone=public --remove-port=<port-port>/tcp if it's a range.
+
+then reload the firewall: firewall-cmd --reload
+
+If you don't know which ports you are using, simply run: firewall-cmd --list-ports
+
+Now if you try to connect to your server via VNC, you'll get an error.
+
+Now you have to create an ssh tunnel from your client to your server.
+
+run this on your client: ssh -L 5901:127.0.0.1:5901 -N -f -l admin 192.168.250.238
+
+This command instructs ssh to create a tunnel on the specified ports.
+
+Launch VNC client and enter: 127.0.0.1:<port>  e.g. 127.0.0.1:5901
+
+
+You are now in and secure!

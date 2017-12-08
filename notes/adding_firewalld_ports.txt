@@ -1,0 +1,12 @@
+You might need to add some ports to your firewalld ports list to allow some particular service.
+
+	adding: firewall-cmd --permanent --zone=<zonename> --add-port=<port>/tcp
+	      e.g. firewall-cmd --permanent --zone=public --add-port=10050/tcp
+
+you can also add a range of ports: firewall-cmd --permanent --zone=public --add-port=10050-10053/tcp
+
+	removing: firewall-cmd --zone=public --remove-port=10050/tcp --permanent
+
+
+You can also add a new zone: firewall-cmd --new-zone=special
+
