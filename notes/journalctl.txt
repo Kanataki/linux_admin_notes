@@ -1,0 +1,38 @@
+Journalctl is a very nice way of accessing specific logs
+
+You can view all the logs by running: sudo journalctl
+
+You can get the logs of a prticular service by: sudo journalctl -u <service>
+						e.g. journalctl -u vnc.service
+
+You can fetch the logs by date: sudo journalctl --since "2017-12-10 19:00:00"
+
+You can use a time range: sudo journalctl --since "2017-12-10" --until "2016-1-1"
+
+You can also be pretty blunt about it: sudo journalctl --since yesterday
+
+In some cases you might want to be more specific like: journalctl --since "2017-12-10" --until "4 hours ago"
+
+You can use to specify a service's log: sudo journalctl -u vnc.service --since "2017-12-05 16:17:47" --until "2017-12-12 15:03:02"
+
+
+You can also fetch logs from two services using the same command:
+
+	sudo journalctl -u vnc.service -u pentaho.service
+
+And if you want to be really techie, you add time into the mix: 
+	sudo journalctl -u vnc.service -u pentaho.service --since "2 days ago"
+
+
+It does not end here :-)
+You can get user logs pretty easily
+First, get your user ID by running: 'id <user>'  e.g. id kanataki
+Then run: sudo journalctl _UID=<userid>
+
+Of course now you know you can add some time thingy :-):
+		Then run: sudo journalctl _UID=<userid> --since "2 days ago"
+
+
+We can also view our logs according to boot sessions:
+
+Since last boot: sudo journalctl -b
