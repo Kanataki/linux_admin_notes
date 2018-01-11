@@ -1,0 +1,43 @@
+	Setting up IntelliJ IDEA on Linux
+
+Go to IntelliJ(http://www.jetbrains.com/idea/) and download the latest IDEA
+
+Unzip the downloaded folder: tar -xvzf ideaIC-2017.32.tar.gz     <substitute with the downloaded version's name>
+
+Move the extracted folder to /opt: sudo mv <folder name> /opt
+
+Add read permissions to all files : chmod -R +r /opt/idea-IC-173.4127.27
+
+Create executable file: touch /usr/bin/IDEA
+		      : chmod 755 /usr/bin/IDEA
+
+Create file : vi /usr/bin/IDEA
+
+Paste: #!/bin/sh
+       export IDEA_HOME="/opt/idea-IC-173.4127.27/bin"
+ 
+       $IDEA_HOME/idea.sh $*
+
+<substitute the export IDEA HOME with your version's folder name>
+
+Create file: vi /usr/share/applications/IDEA.desktop
+
+Paste: [Desktop Entry]
+       Encoding=UTF-8
+       Name=intellj IDEA
+       Comment=Intellij IDEA IDE
+       Exec=IDEA
+       Icon=/opt/idea-IC-173.4127.27/bin/idea.png
+       Terminal=false
+       Type=Application
+       Categories=GNOME;Application;Development;
+       StartupNotify=true
+
+<substitute the icon path with your version's folder name>
+This part creates a gnome/KDE menu icon.
+
+You can also start IDEA by running: bash /opt/idea-IC-173.4127.27/bin/idea.sh
+
+Happy coding :-)
+
+
