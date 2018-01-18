@@ -1,0 +1,69 @@
+======================================================================================================
+
+	Postfix is super cool, better than sendmail really. 	
+	One of the major problems you'll face is having your mail go to spam all the time though.
+
+	You can easily fix this by setting postfix to use gmail's smtp server.
+
+		Install Postfix: yum -y install postfix cyrus-sasl-plain mailx
+
+		Restart Postfix: systemctl restart postfix
+
+		Enable postfix to start on boot: systemctl enable postfix	
+		
+	
+	
+
+===============================[Configuring Postfix]===================================================
+
+		Open this file: sudo vi /etc/postfix/main.cf
+
+		Add the following:
+			myhostname = <hostname>
+
+			relayhost = [smtp.gmail.com]:587
+			smtp_use_tls = yes
+			smtp_sasl_auth_enable = yes
+			smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+			smtp_tls_CAfile = /etc/ssl/certs/ca-bundle.crt
+			smtp_sasl_security_options = noanonymous
+			smtp_sasl_tls_security_options = noanonymous
+
+============================[configuring Postfix SASL credentials]========================================
+
+		Create a file: sudo vi /etc/postfix/sasl_passwd
+		Add the following:
+			[smtp.gmail.com]:587 username:password
+		Substitute username and password with real gmail credentials
+
+		Generate a postfix lookup table: postmap /etc/postfix/sasl_passwd
+
+		Restrict access to sasl password:
+
+			chown root:postfix /etc/postfix/sasl_passwd*
+			chmod 640 /etc/postfix/sasl_passwd*
+
+		Reload Postfix: systemctl reload postfix
+
+============================================[Test]=============================================================
+
+		Run: echo "This is a test." | mail -s "test message" <recipient-email>
+
+
+
+
+=========================================[Troubleshooting]======================================================
+
+
+		Check the Postfix logs: tail -f /var/log/maillog
+
+		If the details are not enough, add the debug level:
+
+			sudo vi /etc/postfix/main.cf.
+		Add the following lines:
+		
+			debug_peer_list=smtp.gmail.com
+			debug_peer_level=3
+
+		Remember to reload postfix
+			

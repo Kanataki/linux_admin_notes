@@ -1,0 +1,16 @@
+	Sendmail is a pretty simple MTA server used for sending mail from the Linux CLI.
+
+This is how you set it up:
+
+		sudo yum install sendmail sendmail-cf.
+
+	Edit the file: sudo vi /etc/mail/sendmail.mc
+	
+	set: DAEMON_OPTIONS(`Port=smtp,Addr=127.0.0.1, Name=MTA')dnl
+	and: LOCAL_DOMAIN(`hostname')dnl
+
+Run: sudo make -C /etc/mail to update changes
+Then restart sendmail: sudo service sendmail restart
+		
+
+
