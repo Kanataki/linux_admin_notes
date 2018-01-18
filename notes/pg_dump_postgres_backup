@@ -1,0 +1,3 @@
+Doing a postgres back up:
+
+	pg_dump --username=postgres --password dbname >/pathtobackupfile

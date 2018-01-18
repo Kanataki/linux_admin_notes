@@ -1,0 +1,29 @@
+Butt (Broadcast using this tool) is an awesome cross-platform tool that I use for streaming my radio show.
+	There are two ways to install it in linux:
+
+	1. The source way. Download Butt and untar it.
+		+cd <buttdirectoy>+
+		+./configure+
+		+make+
+		+make install+
+	See butt READ ME file for a list of all required depedency.
+
+	2. The CLI way
+		Add the epel repo:
+			+yum install epel-release+
+		Add the Nux Desktop repo:
+			+yum install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm+
+
+		Add RABE APEL repo:
+	
+		+curl -o /etc/yum.repos.d/home:radiorabe:audio.repo \
+     http://download.opensuse.org/repositories/home:/radiorabe:/audio/CentOS_7/home:radiorabe:audio.repo+
+
+		Add RABE Streambox repo:
+		+curl -o /etc/yum.repos.d/home:radiorabe:streambox.repo \
+     http://download.opensuse.org/repositories/home:/radiorabe:/streambox/CentOS_7/home:radiorabe:streambox.repo+
+
+Then you're ready to install butt: +yum install butt+
+
+
+ 
