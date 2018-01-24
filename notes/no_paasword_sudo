@@ -1,0 +1,7 @@
+No Password when running sudo commands:
+
+	sudo su -
+	visudo
+Look for user and ammend line:
+
+	Username ALL=(ALL) NOPASSWD: ALL

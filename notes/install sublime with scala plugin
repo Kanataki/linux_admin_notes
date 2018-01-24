@@ -1,0 +1,18 @@
+ Install the GPG key:
+
+sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+
+Select the channel to use:
+
+Stable
+
+    sudo yum-config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+
+Dev
+
+    sudo yum-config-manager --add-repo https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
+
+Update yum and install Sublime Text
+
+sudo yum install sublime-text
+
