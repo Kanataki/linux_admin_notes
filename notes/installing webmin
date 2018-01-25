@@ -1,0 +1,53 @@
+=====================================================================================================================
+					        [WEBMIN]
+=====================================================================================================================
+
+First, you have to import the cameron key: cd /opt
+					   wget http://www.webmin.com/jcameron-key.asc
+					   rpm --import jcameron-key.asc
+		
+	
+					==Create the webmin repo==
+			
+					  vi /etc/yum.repos.d/webmin.repo
+				
+			Add the following lines:
+				
+					  [Webmin]
+					  name=Webmin Distribution Neutral
+					  #baseurl=http://download.webmin.com/download/yum
+					  mirrorlist=http://download.webmin.com/download/yum/mirrorlist
+					  enabled=1
+
+			Check for the repo:
+
+					  yum repolist
+
+			install GPG key:
+
+					  wget http://www.webmin.com/jcameron-key.asc
+					  rpm --import jcameron-key.asc
+
+			install dependencies:
+
+					  yum -y install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-	  Detect 
+
+			install: yum install webmin
+
+
+=============================================[option 2]=============================================================
+
+			Download webmin: 
+
+					  wget http://prdownloads.sourceforge.net/webadmin/webmin-1.870-1.noarch.rpm
+
+
+			install dependencies:
+
+					  yum -y install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-	  Detect 
+
+
+			install: 
+		
+					  rpm -U webmin-1.870-1.noarch.rpm
+
