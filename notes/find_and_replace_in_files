@@ -1,0 +1,4 @@
+find files with some word:   find . -type f -exec grep -1 "kris-cent7" {} +
+
+
+find and replace multiple file some word:  grep -rl "kris-cent7" . | xargs sed -i 's/kris-cent7/oshobiserver/g'
