@@ -1,0 +1,4 @@
+sudo yum remove R
+yum remove R-core
+yum remove R-devel
+yum remove R-core-devel
