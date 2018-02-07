@@ -1,7 +1,9 @@
-This took you a lot of time to figure out. 
+=====================================================================================================================
+                                      [CONNECTING TO AWS]
+=====================================================================================================================
 Whenever you want to ssh into your Pentaho Amazon instance, run a command like:
 
-ssh -i "pentahopair.pem" ec2-user@ec2-34-229-140-90.compute-1.amazonaws.com
+	$ssh -i "pentahopair.pem" ec2-user@ec2-34-229-140-90.compute-1.amazonaws.com
 
 substitute 'pentahopair.pem' with the name of your permission file for that particular EC2 instance.
 

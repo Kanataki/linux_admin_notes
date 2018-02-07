@@ -1,8 +1,11 @@
+=====================================================================================================================
+                                [AUTO START PENTAHO BI ON BOOT]
+=====================================================================================================================
 This is the process I used to write a service to auto start Pentaho BI-server on boot.
 
-Pre-requisite: knowledge of how systemd works.
+Pre-requisite: knowledge of how systemd works will be useful here.
 
-The plan is to create a service in /usr/lib/systemd/system/ which will look like: vi /usr/lib/systemd/system/pentaho.service
+The plan is to create a service in [/usr/lib/systemd/system/] which will look like: $vi /usr/lib/systemd/system/pentaho.service
 
 I then have to include the system unit script in the above created service which will be like this:
 
@@ -32,7 +35,7 @@ Enable the service by running systemctl enable pentaho.service
 
 You can now test your service by running systemctl status pentaho.service
 
-Lastly tail catalina log to check whether your service is working: tail -f /opt/Pentaho/pentaho-server/tomcat/logs/catalina.out
+Lastly tail catalina log to check whether your service is working: $tail -f /opt/Pentaho/pentaho-server/tomcat/logs/catalina.out
 
 NB:the paths depend on where you did your installation.
 
@@ -51,8 +54,8 @@ There are a couple of things you can try. However, I advise cross checking wheth
 
 After making any kind of change, reload the systemd service by running: systemctl daemon-reload
 Then run:
-	'systemctl start pentaho.service' 
-	 and 'systemctl status pentaho.service' respectively.
+	$systemctl start pentaho.service
+	 and $systemctl status pentaho.service respectively.
 
 Have fun doing magic :-)
 	

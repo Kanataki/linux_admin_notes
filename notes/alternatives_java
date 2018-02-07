@@ -1,1 +1,3 @@
-/usr/sbin/alternatives --config java
+This command is to check what versions of java are available and enable you to choose a default:
+	
+	/usr/sbin/alternatives --config java
