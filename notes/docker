@@ -1,0 +1,36 @@
+pull #docker pull rocker/rstudiotest 
+
+# docker imagesrun 
+
+note: -- change the subnet name and ip and host_name -- 
+
+-v (volume) localmachine:dockerhostmachine  
+
+# docker run -p 8787:8787 --hostname kanatakistudio --add-host kanatakistudio:192.168.0.50 --privileged=true --net dockersubnet --ip 192.168.0.50  -v /opt/docker/r_work:/opt/r_work --name kanatakistudio rocker/rstudio tail -f /dev/null
+
+execute the docker instance in another terminal to test and then exit 
+
+#docker exec -ti kanatakistudio  /bin/bash 
+
+#exitopen other terminal and stop docker 
+#docker stop [name] 
+#docker start [name]
+
+execute the docker instance to continue using 
+
+#docker exec -ti iconiahadoop  /bin/bash
+
+
+
+
+
+
+
+
+
+
+docker run -p 8181:8080 --hostname iconiazeppelin --add-host iconiazeppelin:172.28.5.20 --privileged=true --net br0 --ip 172.28.5.20  -v /opt/docker/zeppelin_work:/opt/zeppelin_work --name iconiazeppelin dylanmei/zeppelin tail -f /dev/null
+
+
+
+sudo docker network create subnet=172.28.0.0/16

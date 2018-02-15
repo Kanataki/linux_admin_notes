@@ -1,0 +1,30 @@
+ At this point, I assume you have an rstudio docker up running.
+
+You are probably going to get a lot of errors while trying to install R packages.
+The first error will not being able to download the packages.
+	solve this by fixing the dns in resolv.conf
+	add 8.8.8.8 as a nameserver
+	
+	cat >> /etc/resolv.conf
+	nameserver 8.8.8.8
+
+You will then need to install a couple of dependencies on your docker environment.
+
+	sudo apt-get install libssl-dev
+	sudo apt-get install libcurl4-openssl-dev
+	sudo apt-get install libssh2-1-dev
+	sudo apt-get install libpq-dev
+	sudo apt-get install zlib1g-dev
+
+	sudo R
+
+	install.packages('httr')
+	install.packages('git2r')
+	install.packages('devtools')
+	library(devtools)
+
+	install.packages('RPostgreSQL')
+
+	install.packages('shiny')
+
+ 
