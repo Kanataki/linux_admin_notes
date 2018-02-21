@@ -16,6 +16,10 @@ You will then need to install a couple of dependencies on your docker environmen
 	sudo apt-get install libpq-dev
 	sudo apt-get install zlib1g-dev
 
+sudo yum -y install openssl-devel
+sudo yum -y install libcurl libcurl-devel
+
+might <- sudo yum install gnutls-devel.x86_64
 	sudo R
 
 	install.packages('httr')

@@ -18,7 +18,7 @@ execute the docker instance in another terminal to test and then exit
 
 execute the docker instance to continue using 
 
-#docker exec -ti iconiahadoop  /bin/bash
+#docker exec -ti kanatakistudio  /bin/bash
 
 
 
