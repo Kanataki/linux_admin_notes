@@ -1,3 +1,6 @@
+==============================================================================
+                            [JAVA HOME]
+==============================================================================
 This is simple yet can be a very annoying process.
 
 First you have to install Oracle java or any other version of java.

@@ -1,3 +1,6 @@
+==============================================================================
+                             [VNC TUNNELLING]
+==============================================================================
 VNC is unencrypted and thus poses a  risk to your server's security even though you have taken steps to secure your ssh.
 For more details on how to secure your ssh, check out my ssh notes.
 

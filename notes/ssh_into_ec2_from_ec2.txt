@@ -1,3 +1,7 @@
+==============================================================================
+                           [SSH - EC2]
+==============================================================================
+
 This can confuse you at first but at times you might want to SSH into into an EC2 instance from another EC2 instance.
 
 If both instances are in the same subnet then this is easy. All you have to do is set up public and private keys.

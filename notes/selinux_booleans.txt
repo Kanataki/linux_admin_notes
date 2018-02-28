@@ -1,3 +1,7 @@
+=============================================================================
+                           [SELINUX BOOLEANS]
+=============================================================================
+
 Well, back again aren't we?
 
 SElinux has a list of booleans depicting what is allowed and what is not.

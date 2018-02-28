@@ -1,4 +1,8 @@
- At this point, I assume you have an rstudio docker up running.
+==============================================================================
+                             [DOCKER SETTINGS]
+==============================================================================
+
+At this point, I assume you have an rstudio docker up running.
 
 You are probably going to get a lot of errors while trying to install R packages.
 The first error will not being able to download the packages.

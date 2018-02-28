@@ -27,7 +27,9 @@ copy the contents of the file.
 ssh into the server and edit the authorized keys file:
 
 sudo vi ~/.ssh/authorized_keys
-
+==============================================================================
+                              [SSH KEYS]
+==============================================================================
 if there are other existing keys, hit a new line and add yours.
 
 Save the file and exit

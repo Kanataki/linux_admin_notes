@@ -1,4 +1,7 @@
-	Sendmail is a pretty simple MTA server used for sending mail from the Linux CLI.
+==============================================================================
+                            [SENDMAIL]
+==============================================================================
+Sendmail is a pretty simple MTA server used for sending mail from the Linux CLI.
 
 This is how you set it up:
 
