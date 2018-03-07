@@ -1,0 +1,5 @@
+First check the output of: xset q 
+
+
+Then run: xset s off && xset -dpms
+
